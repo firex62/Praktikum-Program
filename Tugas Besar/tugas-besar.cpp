@@ -8,6 +8,7 @@
 using namespace std;
 
 #define Namafile "Data MHS.csv"
+string namaMHS, nimMHS, smtMHS, jurusanMHS, prodiMHS ;
 
 ifstream FileDataIn;
 ofstream FileDataOut;
@@ -15,6 +16,7 @@ ofstream FileDataOut;
 void filebaru(){
 	FileDataOut.open(Namafile);
 	FileDataOut << "\"Nama\",\"NIM\",\"Semester\",\"Jurusan\",\"Prodi\"";
+	FileDataOut.close();
 }
 
 void cekfile(){
@@ -29,8 +31,58 @@ void cekfile(){
 	}
 }
 
+void InputNama(){
+	cout << "Nama : ";
+	getline(cin >> ws, namaMHS);
+	FileDataOut << "\n\"" << namaMHS << "\"" ;
+}
+
+void InputNIM(){
+	cout << "NIM : ";
+	getline(cin >> ws, nimMHS);
+	FileDataOut << ",\"" << nimMHS << "\"" ;
+}
+
+void InputSMT(){
+	cout << "Semester : ";
+	getline(cin >> ws, smtMHS);
+	FileDataOut << ",\"" << smtMHS << "\"" ;
+}
+
+void InputJurusan(){
+	cout << "Jurusan : ";
+	getline(cin >> ws, jurusanMHS);
+	FileDataOut << ",\"" << jurusanMHS << "\"" ;
+}
+
+void InputProdi(){
+	cout << "Program Studi : ";
+	getline(cin >> ws, prodiMHS);
+	FileDataOut << ",\"" << prodiMHS << "\"" ;
+}
+
 int main(){
 	cekfile();
-	cout << "selesai!" << endl ;
+	FileDataOut.open(Namafile, ios::app);
+	
+	cout << "Isi data? (y/n) " ;
+	char confirm ;
+	cin >> confirm ;
+	if(confirm == 'y'){
+		char opt = 'y';
+		while(opt == 'y'){
+			//system("clear"); //perlu bikin fungsi deteksi os
+			InputNama();
+			InputNIM();
+			InputSMT();
+			InputJurusan();
+			InputProdi();
+			cout << "lagi? (y/n) ";
+			cin >> opt;
+		}
+	}
+	
+	FileDataOut.close();
+	cout << "\nselesai!" << endl ;
 	return 0;
 }
