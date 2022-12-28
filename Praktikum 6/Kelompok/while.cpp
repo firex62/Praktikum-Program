@@ -2,10 +2,10 @@
 using namespace std;
 
 int main(){
-	char opt = 'y';
+	char opt = 't';
 	int count = 1 ;
 	
-	while(opt == 'y'){
+	while(opt == 't'){
 		printf("Pengisian ke %i\n", count);
 		printf("Apakah mangkok makanan sudah penuh? (y/t) : ");
 		cin >> opt;
