@@ -2,7 +2,6 @@
 	Kelompok 1 : "Mendata mahasiswa dengan output file .csv"
 */
 #include <iostream>
-#include <iomanip>
 #include <fstream>
 #include <string>
 #include <cstdlib>
