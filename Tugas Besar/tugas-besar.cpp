@@ -61,6 +61,14 @@ void InputProdi(){
 	FileDataOut << ",\"" << prodiMHS << "\"" ;
 }
 
+void clearscreen(){
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
+}
+
 int main(){
 	cekfile();
 	FileDataOut.open(Namafile, ios::app);
@@ -72,6 +80,7 @@ int main(){
 		char opt = 'y';
 		while(opt == 'y'){
 			//system("clear"); //perlu bikin fungsi deteksi os
+			clearscreen();
 			InputNama();
 			InputNIM();
 			InputSMT();
