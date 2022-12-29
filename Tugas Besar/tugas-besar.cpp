@@ -8,7 +8,7 @@
 #include <cstdlib>
 using namespace std;
 
-#define Namafile "Data MHS.csv"
+#define Namafile "Data MHS.csv" //nama file yang akan digunakan
 string namaMHS, nimMHS, smtMHS, jurusanMHS, prodiMHS ;
 
 ifstream FileDataIn;
@@ -16,12 +16,13 @@ ofstream FileDataOut;
 
 void clearscreen(){
 	#ifdef _WIN32
-		system("cls");
+		system("cls"); //perintah clear screen untuk Windows
 	#else
-		system("clear");
+		system("clear"); //perintah clear screen untuk os selain Windows (macOS, Linux, dll)
 	#endif
 }
 
+//menampilkan pesan
 void pesan(){
 	clearscreen();
 	cout << "====== KELOMPOK 1 ======\n" ;
@@ -31,12 +32,14 @@ void pesan(){
 	cout << "StackOverflow \nNetbook Eee PC dari Adri :3 \nGitHub.com\n";
 }
 
+//membuat file .csv baru
 void filebaru(){
 	FileDataOut.open(Namafile);
 	FileDataOut << "\"Nama\",\"NIM\",\"Semester\",\"Jurusan\",\"Prodi\"";
 	FileDataOut.close();
 }
 
+//mengecek keberadaan file data
 void cekfile(){
 	FileDataIn.open(Namafile);
 	if(!FileDataIn){
@@ -83,12 +86,13 @@ void InputProdi(){
 	FileDataOut << ",\"" << prodiMHS << "\"" ;
 }
 
+//fungsi untuk pengisian data
 void isidata(){
 	FileDataOut.open(Namafile, ios::app);
 	char opt = 'y';
 	while(opt == 'y'){
 		//system("clear"); //perlu bikin fungsi deteksi os
-		clearscreen();
+		clearscreen(); //membersihkan teks
 		InputNama();
 		InputNIM();
 		InputSMT();
@@ -109,7 +113,7 @@ int main(){
 		isidata();
 	} 
 	
-	pesan();
+	pesan(); //tampilkan pesan sebelum mengakhiri program
 	cout << "\nselesai!" << endl ;
 	return 0;
 }
