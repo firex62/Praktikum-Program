@@ -2,6 +2,7 @@
 	Kelompok 1 : "Mendata mahasiswa dengan output file .csv"
 */
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <string>
 #include <cstdlib>
@@ -12,6 +13,23 @@ string namaMHS, nimMHS, smtMHS, jurusanMHS, prodiMHS ;
 
 ifstream FileDataIn;
 ofstream FileDataOut;
+
+void clearscreen(){
+	#ifdef _WIN32
+		system("cls");
+	#else
+		system("clear");
+	#endif
+}
+
+void pesan(){
+	clearscreen();
+	cout << "====== KELOMPOK 1 ======\n" ;
+	cout << "Mohammad Albir Arkan\t| C020322018" << endl;
+	cout << "Muhammad Firman Yassin\t| C020322022" << endl;
+	cout << "\n====== THIS PROGRAM IS POWERED BY ======\n" ;
+	cout << "StackOverflow \nNetbook Eee PC dari Adri :3 \nGitHub.com\n";
+}
 
 void filebaru(){
 	FileDataOut.open(Namafile);
@@ -27,6 +45,10 @@ void cekfile(){
 		cin >> confirm ;
 		if(confirm == 'y'){
 			filebaru();
+		} else {
+			pesan();
+			cout << "selesai!";
+			exit(0) ;
 		}
 	}
 }
@@ -61,37 +83,33 @@ void InputProdi(){
 	FileDataOut << ",\"" << prodiMHS << "\"" ;
 }
 
-void clearscreen(){
-	#ifdef _WIN32
-		system("cls");
-	#else
-		system("clear");
-	#endif
+void isidata(){
+	FileDataOut.open(Namafile, ios::app);
+	char opt = 'y';
+	while(opt == 'y'){
+		//system("clear"); //perlu bikin fungsi deteksi os
+		clearscreen();
+		InputNama();
+		InputNIM();
+		InputSMT();
+		InputJurusan();
+		InputProdi();
+		cout << "lagi? (y/n) ";
+		cin >> opt;
+	}
 }
 
 int main(){
 	cekfile();
-	FileDataOut.open(Namafile, ios::app);
 	
 	cout << "Isi data? (y/n) " ;
 	char confirm ;
 	cin >> confirm ;
 	if(confirm == 'y'){
-		char opt = 'y';
-		while(opt == 'y'){
-			//system("clear"); //perlu bikin fungsi deteksi os
-			clearscreen();
-			InputNama();
-			InputNIM();
-			InputSMT();
-			InputJurusan();
-			InputProdi();
-			cout << "lagi? (y/n) ";
-			cin >> opt;
-		}
-	}
+		isidata();
+	} 
 	
-	FileDataOut.close();
+	pesan();
 	cout << "\nselesai!" << endl ;
 	return 0;
 }
