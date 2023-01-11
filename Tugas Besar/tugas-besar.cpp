@@ -27,8 +27,6 @@ void pesan(){
 	cout << "====== KELOMPOK 1 ======\n" ;
 	cout << "Mohammad Albir Arkan\t| C020322018" << endl;
 	cout << "Muhammad Firman Yassin\t| C020322022" << endl;
-	cout << "\n====== THIS PROGRAM IS POWERED BY ======\n" ;
-	cout << "StackOverflow \nNetbook Eee PC dari Adri :3 \nGitHub.com\n";
 }
 
 //membuat file .csv baru
@@ -56,31 +54,31 @@ void cekfile(){
 }
 
 void InputNama(){
-	cout << "Nama : ";
+	cout << "\tNama \t\t: ";
 	getline(cin >> ws, namaMHS);
 	FileDataOut << "\n\"" << namaMHS << "\"" ;
 }
 
 void InputNIM(){
-	cout << "NIM : ";
+	cout << "\tNIM \t\t: ";
 	getline(cin >> ws, nimMHS);
 	FileDataOut << ",\"" << nimMHS << "\"" ;
 }
 
 void InputSMT(){
-	cout << "Semester : ";
+	cout << "\tSemester \t: ";
 	getline(cin >> ws, smtMHS);
 	FileDataOut << ",\"" << smtMHS << "\"" ;
 }
 
 void InputJurusan(){
-	cout << "Jurusan : ";
+	cout << "\tJurusan \t: ";
 	getline(cin >> ws, jurusanMHS);
 	FileDataOut << ",\"" << jurusanMHS << "\"" ;
 }
 
 void InputProdi(){
-	cout << "Program Studi : ";
+	cout << "\tProgram Studi \t: ";
 	getline(cin >> ws, prodiMHS);
 	FileDataOut << ",\"" << prodiMHS << "\"" ;
 }
@@ -92,12 +90,13 @@ void isidata(){
 	while(opt == 'y'){
 		//system("clear"); //perlu bikin fungsi deteksi os
 		clearscreen(); //membersihkan teks
+		cout << "\n============ Pengisian data ============\n" << endl;
 		InputNama();
 		InputNIM();
 		InputSMT();
 		InputJurusan();
 		InputProdi();
-		cout << "lagi? (y/n) ";
+		cout << "\nApakah andan ingin mengisi data lagi? (y/n) ";
 		cin >> opt;
 	}
 }
@@ -105,7 +104,7 @@ void isidata(){
 int main(){
 	cekfile();
 	
-	cout << "Isi data? (y/n) " ;
+	cout << "Apakah anda ingin mengisi data? (y/n) " ;
 	char confirm ;
 	cin >> confirm ;
 	if(confirm == 'y'){
